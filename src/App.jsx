@@ -209,7 +209,7 @@ Responda SOMENTE JSON válido sem texto antes/depois:
 {"titulo_carrossel":"...","hook":"...","slides":[{"numero":1,"tipo":"capa","titulo":"máx 7 palavras","subtitulo":"máx 12 palavras","pessoa":"Nome Completo","motivo_pessoa":"1 frase","query_google":"Nome high resolution photo 2024","query_alt":"Nome official press photo"}],"hashtags":["t1","t2","t3","t4","t5"]}
 Regras: slide 1=capa, último=cta, pessoa diferente em cada slide, queries em inglês.`
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch('/api/generate', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, messages: [{ role: 'user', content: prompt }] }),
       })
